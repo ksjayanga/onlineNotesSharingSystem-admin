@@ -1,7 +1,6 @@
 <?php 
 
     include('../config/constants.php'); 
-  //  include('login-check.php');
 
 ?>
 
@@ -51,12 +50,10 @@
           <a class="dropdown-item" href="manage-subject.php">Manage Subjects</a>
           <a class="dropdown-item" href="manage-note.php">Manage Notes</a>
           <div class="dropdown-divider"></div>
-         <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        
         </div>
       </li>
-    <!--  <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li> -->
+   
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <a class="form-control mr-sm-2" href="../login.php">Login</a>
