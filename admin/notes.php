@@ -29,22 +29,22 @@ include('partials/navbar.php');
         <?php 
 
             $id = $_SESSION['id'];
-            //Display Foods that are Active
+             
             $sql = "SELECT * FROM tbl_notes WHERE active='Yes' ORDER BY likes DESC";
 
-            //Execute the Query
+            
             $res=mysqli_query($conn, $sql);
 
-            //Count Rows
+             
             $count = mysqli_num_rows($res);
 
-            //CHeck whether the foods are availalable or not
+            
             if($count>0)
             {
-                //Foods Available
+               
                 while($row=mysqli_fetch_assoc($res))
                 {
-                    //Get the Values
+                    
                     $note_id = $row['note_id']; 
                     $title = $row['title'];
                     $description = $row['description'];
@@ -58,10 +58,10 @@ include('partials/navbar.php');
                         <div>
                        
                             <?php 
-                                //CHeck whether image available or not
+                                
                                 if($image_name=="")
                                 {
-                                    //Image not Available 
+                                     
                                     ?>
                                      <img src="../images/default.png" alt="notes" class="img-responsive img-curve" width="60px">
                                     <?php    
@@ -109,7 +109,7 @@ include('partials/navbar.php');
             }
             else
             {
-                //Notes not Available
+                
                 echo "<div class='error'>Notes not found.</div>";
             }
         ?>
