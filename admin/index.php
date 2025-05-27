@@ -17,7 +17,7 @@ include_once('partials/navbar.php');
         ?>
 
 <?php
-// Get user ID from session
+ 
 
 $id = $_SESSION['id'];
 $sql = "SELECT * FROM tbl_accounts WHERE id = '$id'";
@@ -62,11 +62,11 @@ if ($result && $result->num_rows > 0) {
                 <div class="col-4 text-center">
 
                     <?php 
-                        //Sql Query 
+                         
                         $sql = "SELECT * FROM tbl_subjects";
-                        //Execute Query
+                        
                         $res = mysqli_query($conn, $sql);
-                        //Count Rows
+                       
                         $count = mysqli_num_rows($res);
                     ?>
 
@@ -78,11 +78,11 @@ if ($result && $result->num_rows > 0) {
                 <div class="col-4 text-center">
 
                     <?php 
-                        //Sql Query 
+                        
                         $sql2 = "SELECT * FROM tbl_notes";
-                        //Execute Query
+                       
                         $res2 = mysqli_query($conn, $sql2);
-                        //Count Rows
+                       
                         $count2 = mysqli_num_rows($res2);
                     ?>
 
@@ -94,11 +94,11 @@ if ($result && $result->num_rows > 0) {
                 <div class="col-4 text-center">
                     
                     <?php 
-                        //Sql Query 
+                        
                         $sql3 = "SELECT * FROM tbl_accounts";
-                        //Execute Query
+                         
                         $res3 = mysqli_query($conn, $sql3);
-                        //Count Rows
+                        
                         $count3 = mysqli_num_rows($res3);
                     ?>
 
@@ -114,11 +114,7 @@ if ($result && $result->num_rows > 0) {
             </div>
             
         </div>
-        <!-- Profile Image and Greeting -->
-
-        <!-- Main Content Setion Ends -->
-
-        <!-- search section starts Here -->
+        
 <section class="search text-center">
     <div class="container">
         
@@ -140,21 +136,21 @@ if ($result && $result->num_rows > 0) {
     }
 ?>
 
-<!-- Categories Section Starts Here -->
+ 
 <section class="categories">
     <div class="container">
         <h2 class="text-center">Explore Notes</h2>
 
         <?php 
-            // SQL Query to Display Categories from Database
+          
             $sql = "SELECT * FROM tbl_subjects WHERE active='Yes' LIMIT 6";
             $res = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($res);
 
             if($count > 0) {
-                // Categories Available
+                
                 while($row = mysqli_fetch_assoc($res)) {
-                    // Get the Values like id, title, image_name
+                    
                     $id = $row['id'];
                     $title = $row['title'];
                     $image_name = $row['image_name'];
@@ -183,7 +179,7 @@ if ($result && $result->num_rows > 0) {
                     <?php
                 }
             } else {
-                // Categories not Available
+               
                 echo "<div class='error'>Category not Added.</div>";
             }
         ?>
@@ -200,22 +196,21 @@ if ($result && $result->num_rows > 0) {
         <?php 
         
          
-        //SQL Query
+       
         $sql2 = "SELECT * FROM tbl_notes WHERE active='Yes' ORDER BY likes DESC LIMIT 4";
 
-        //Execute the Query
+         
         $res2 = mysqli_query($conn, $sql2);
 
-        //Count Rows
+       
         $count2 = mysqli_num_rows($res2);
-
-        //CHeck available or not
+ 
         if($count2>0)
         {
              
             while($row=mysqli_fetch_assoc($res2))
             {
-                //Get all the values
+                
                 $note_id = $row['note_id']; 
                 $title = $row['title'];
                 $image_name = $row['image_name'];
@@ -225,15 +220,15 @@ if ($result && $result->num_rows > 0) {
                     <div class="menu-img">
                     <a href="note_page.php?note_id=<?php echo $note_id; ?>" class="btn-primary">
                         <?php 
-                            //Check whether image available or not
+                           
                             if($image_name=="")
                             {
-                                //Image not Available
+                          
                                 echo "<img src='../images/default.png' alt='notes' class='img-responsive img-curve' width='50px'>";
                             }
                             else
                             {
-                                //Image Available
+                               
                                 ?>
                                 <img src="../images/icon/<?php echo $image_name; ?>" alt="image" class="img-responsive img-curve">
                                 <?php
@@ -253,7 +248,7 @@ if ($result && $result->num_rows > 0) {
         }
         else
         {
-            // Not Available 
+            
             echo "<div class='error'>Food not available.</div>";
         }
         
